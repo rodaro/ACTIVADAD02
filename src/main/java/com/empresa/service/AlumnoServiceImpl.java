@@ -1,6 +1,7 @@
 package com.empresa.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +26,33 @@ public class AlumnoServiceImpl implements AlumnoService{
 		return repository.save(obj);
 	}
 
+	@Override
+	public Optional<Alumno> buscaPorId(int idAlumno) {
+		// TODO Auto-generated method stub
+		return repository.findById(idAlumno);
+	}
+
+	@Override
+	public void eliminarPorId(int idAlumno) {
+		// TODO Auto-generated method stub
+		repository.deleteById(idAlumno);
+	}
+/*
+	@Override
+	public List<Alumno> listaPorDNI(String dni) {
+		// TODO Auto-generated method stub
+		return repository.buscaPordni(dni);
+	}
+*/
+
+	@Override
+	public List<Alumno> buscarPorDni(String dni) {
+		// TODO Auto-generated method stub
+		return repository.findByDni(dni);
+	}
 	
+	
+
 	
 
 }
